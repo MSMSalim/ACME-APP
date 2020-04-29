@@ -1,0 +1,10 @@
+{
+    "editor.fontSize": 16,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 10,
+    "vim.cursorStylePerMode.insert": "block",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSurroundingLinesStyle": "all",
+    "terminal.integrated.cursorStyle": "line",
+    "vim.cursorStylePerMode.normal": "block"
+}
