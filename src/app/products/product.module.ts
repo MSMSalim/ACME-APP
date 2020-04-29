@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list.component';
 import { ProductDetailComponent } from './product-detail.component';
 import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
-import { StarComponent } from '../shared/star.component';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from '../product/product-detail.guard';
+import { SharedModule } from '../shared/shared.module';
 
 let productRoutes = [
   { path: 'products', component: ProductListComponent },
@@ -17,13 +15,11 @@ let productRoutes = [
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    ConvertToSpacesPipe,
-    StarComponent,
+    ConvertToSpacesPipe
   ],
   imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(productRoutes)
+    RouterModule.forChild(productRoutes),
+    SharedModule
   ],
 })
 export class ProductModule {}
