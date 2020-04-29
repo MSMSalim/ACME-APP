@@ -31,6 +31,7 @@ export class ProductListComponent implements OnInit {
 
   public filteredProducts: IProduct[];
   public products: IProduct[];
+  public errorMessage: string;
 
   performFilter(filterBy: string): IProduct[] {
     let filterByLowerCase = filterBy.toLocaleLowerCase();
@@ -42,8 +43,14 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('component initialise');
-    this.products = this.productService.getProducts();
-    this.filteredProducts = this.products;
+
+    this.productService.getProducts().subscribe({
+        next: products => {
+          this.products = products;
+          this.filteredProducts = this.products;
+        },
+        error: err => this.errorMessage = err
+    });
   }
 
   toggleImage(): void {
